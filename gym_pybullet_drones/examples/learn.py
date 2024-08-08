@@ -35,7 +35,7 @@ from gym_pybullet_drones.utils.enums import ObservationType, ActionType
 
 DEFAULT_GUI = True
 DEFAULT_RECORD_VIDEO = False
-DEFAULT_OUTPUT_FOLDER = 'results'
+DEFAULT_OUTPUT_FOLDER = 'resultsPPO'
 DEFAULT_COLAB = False
 
 DEFAULT_OBS = ObservationType('kin') # 'kin' or 'rgb'
@@ -71,7 +71,7 @@ def run(multiagent=DEFAULT_MA, output_folder=DEFAULT_OUTPUT_FOLDER, gui=DEFAULT_
     #### Train the model #######################################
     model = PPO('MlpPolicy',
                 train_env,
-                # tensorboard_log=filename+'/tb/',
+                tensorboard_log=filename+'/tb/',
                 verbose=1)
 
     #### Target cumulative rewards (problem-dependent) ##########

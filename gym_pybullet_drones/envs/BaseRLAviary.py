@@ -27,6 +27,7 @@ class BaseRLAviary(BaseAviary):
                  obs: ObservationType=ObservationType.KIN,
                  act: ActionType=ActionType.RPM
                  ):
+        
         """Initialization of a generic single and multi-agent RL environment.
 
         Attributes `vision_attributes` and `dynamics_attributes` are selected
@@ -76,6 +77,7 @@ class BaseRLAviary(BaseAviary):
                 self.ctrl = [DSLPIDControl(drone_model=DroneModel.CF2X) for i in range(num_drones)]
             else:
                 print("[ERROR] in BaseRLAviary.__init()__, no controller is available for the specified drone_model")
+        
         super().__init__(drone_model=drone_model,
                          num_drones=num_drones,
                          neighbourhood_radius=neighbourhood_radius,

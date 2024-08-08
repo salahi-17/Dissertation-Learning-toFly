@@ -38,6 +38,7 @@ class BaseAviary(gym.Env):
                  vision_attributes=False,
                  output_folder='results'
                  ):
+
         """Initialization of a generic aviary environment.
 
         Parameters
@@ -1099,6 +1100,7 @@ class BaseAviary(gym.Env):
 
         """
         raise NotImplementedError
+    
 
     ################################################################################
 

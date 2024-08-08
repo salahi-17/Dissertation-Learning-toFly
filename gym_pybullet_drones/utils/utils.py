@@ -7,6 +7,35 @@ from scipy.optimize import nnls
 
 ################################################################################
 
+class Battery:
+    def __init__(self, initial_level=1.0, max_level=1.0, min_level=0.0, discharge_rate=0.01):
+        self.level = initial_level
+        self.max_level = max_level
+        self.min_level = min_level
+        self.discharge_rate = discharge_rate
+
+    def discharge(self, amount):
+        self.level -= amount
+        if self.level < self.min_level:
+            self.level = self.min_level
+
+    def charge(self, amount):
+        self.level += amount
+        if self.level > self.max_level:
+            self.level = self.max_level
+
+    def get_level(self):
+        return self.level
+
+    def set_level(self, level):
+        if level < self.min_level:
+            self.level = self.min_level
+        elif level > self.max_level:
+            self.level = self.max_level
+        else:
+            self.level = level
+
+
 def sync(i, start_time, timestep):
     """Syncs the stepped simulation with the wall-clock.
 
